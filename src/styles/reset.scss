@@ -15,9 +15,9 @@
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
     cursor: default;
-    line-height: 1.5;
+    line-height: normal;
     overflow-wrap: break-word;
-    word-break: break-word;
+    -moz-tab-size: 4;
     tab-size: 4;
 }
 html,
@@ -43,4 +43,8 @@ a {
 table {
     border-collapse: collapse;
     border-spacing: 0;
+}
+ul,
+ol {
+    list-style-type: none;
 }
