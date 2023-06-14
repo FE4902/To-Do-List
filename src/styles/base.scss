@@ -25,27 +25,3 @@ body {
 .footer {
     display: none;
 }
-
-.todo {
-    &__input {
-        width: 100%;
-        padding: 0 4px;
-        margin-bottom: 8px;
-    }
-
-    &__list {
-        list-style-type: decimal-leading-zero;
-        padding-left: 24px;
-        // list-style-position: inside;
-    }
-
-    &__item {
-        &:not(:last-child) {
-            margin-bottom: 4px;
-        }
-    }
-
-    &__text {
-        display: inline;
-    }
-}

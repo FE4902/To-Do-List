@@ -1,14 +1,24 @@
 import "./styles/style.scss";
-import { Body } from "./components/Body";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
+
+import TodoInput from "./components/TodoInput";
+import TodoList from "./components/TodoList";
+import TodoMenu from "./components/TodoMenu";
 
 function App() {
+    let todos = localStorage.getItem("todo") as any;
+
     return (
         <div className="wrap">
-            <Header />
-            <Body />
-            <Footer />
+            <header className="header">
+                <h1>ToDos</h1>
+                <TodoInput todos={todos} />
+            </header>
+            <main className="body">
+                <TodoList />
+            </main>
+            <footer className="footer">
+                <TodoMenu />
+            </footer>
         </div>
     );
 }
