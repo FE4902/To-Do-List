@@ -1,25 +1,37 @@
-import "./styles/style.scss";
+import { useState, createContext, useEffect } from "react";
 
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import TodoMenu from "./components/TodoMenu";
 
+import "./styles/style.scss";
+
+export const TodoContext = createContext<any>([]);
+
 function App() {
-    let todos = localStorage.getItem("todo") as any;
+    const [todos, setTodos] = useState(
+        JSON.parse(localStorage.getItem("todo") || "[]")
+    );
+
+    useEffect(() => {
+        localStorage.setItem("todo", JSON.stringify(todos));
+    }, [todos]);
 
     return (
-        <div className="wrap">
-            <header className="header">
-                <h1>ToDos</h1>
-                <TodoInput todos={todos} />
-            </header>
-            <main className="body">
-                <TodoList />
-            </main>
-            <footer className="footer">
-                <TodoMenu />
-            </footer>
-        </div>
+        <TodoContext.Provider value={{ todos, setTodos }}>
+            <div className="wrap">
+                <header className="header">
+                    <h1>ToDos</h1>
+                    <TodoInput />
+                </header>
+                <main className="body">
+                    <TodoList />
+                </main>
+                <footer className="footer">
+                    <TodoMenu />
+                </footer>
+            </div>
+        </TodoContext.Provider>
     );
 }
 

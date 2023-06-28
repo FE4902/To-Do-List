@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { TodoContext } from "../App";
 
 import S from "./TodoInput.module.scss";
 
-const TodoInput = (todos: any): JSX.Element => {
+const TodoInput = (): JSX.Element => {
     const [text, setText] = useState("");
-    let parseToDos = JSON.parse(todos) ?? [];
+    const { todos, setTodos } = useContext(TodoContext);
 
     const handleChange = (e: any) => {
         setText(e.target.value);
@@ -12,11 +13,12 @@ const TodoInput = (todos: any): JSX.Element => {
 
     const handleKeyPress = (e: any) => {
         if (e.key === "Enter") {
+            const id = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
+
             if (e.target.value) {
-                parseToDos = [...parseToDos, e.target.value];
-                localStorage.setItem("todo", JSON.stringify(parseToDos));
+                setTodos([...todos, { id: id, text: text }]);
             }
-            e.target.value = "";
+            setText("");
         }
     };
 
