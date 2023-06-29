@@ -1,17 +1,29 @@
+import { useContext } from "react";
+import { TodoContext } from "../App";
+import { FaTrashAlt } from "react-icons/fa";
+
 import S from "./TodoItem.module.scss";
 
 type TodoItemType = {
+    id: number;
     text: string;
 };
 
 const TodoItem = (props: TodoItemType): JSX.Element => {
-    const { text } = props;
+    const { id, text } = props;
+    const { todos, setTodos } = useContext(TodoContext);
+
+    const handleDelete = () => {
+        setTodos(todos.filter((v: any) => v.id !== id));
+    };
 
     return (
         <li className={S.item}>
-            <div className="todo__check"></div>
+            <div className={S.check}></div>
             <p className={S.text}>{text}</p>
-            <div className="todo__delete"></div>
+            <button className={S.delete} onClick={handleDelete}>
+                <FaTrashAlt />
+            </button>
         </li>
     );
 };

@@ -11,7 +11,7 @@ const TodoList = (): JSX.Element => {
     return (
         <ul className={S.list}>
             {todos.map((v: any) => {
-                return <TodoItem key={v.id} text={v.text} />;
+                return <TodoItem key={v.id} id={v.id} text={v.text} />;
             })}
         </ul>
     );

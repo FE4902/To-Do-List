@@ -2,7 +2,7 @@
     width: 100%;
     padding: 12px 16px;
     border-radius: 8px;
-    border: 1px solid #aaa;
+    border: 1px solid var(--gray-color);
 
     &:is(:hover, :focus) {
         border-color: var(--primary-color);
