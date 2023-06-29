@@ -16,7 +16,7 @@ const TodoInput = (): JSX.Element => {
             const id = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
 
             if (e.target.value) {
-                setTodos([...todos, { id: id, text: text }]);
+                setTodos([...todos, { id: id, text: text, complete: false }]);
             }
             setText("");
         }
