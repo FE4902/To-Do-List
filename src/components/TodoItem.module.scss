@@ -1,9 +1,23 @@
 .item {
-    &:not(:last-child) {
-        margin-bottom: 4px;
+    display: flex;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    animation: 0.3s show;
+
+    &:is(:hover, :focus) {
+        opacity: 0.75;
     }
 }
 
-.text {
-    display: inline;
+@keyframes show {
+    0% {
+        opacity: 0;
+        transform: translateY(32px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

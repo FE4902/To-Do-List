@@ -21,7 +21,7 @@ function App() {
         <TodoContext.Provider value={{ todos, setTodos }}>
             <div className="wrap">
                 <header className="header">
-                    <h1>ToDos</h1>
+                    <h1 className="title">오늘 할 일</h1>
                     <TodoInput />
                 </header>
                 <main className="body">

@@ -26,7 +26,7 @@ const TodoInput = (): JSX.Element => {
         <input
             className={S.input}
             type="text"
-            placeholder="What needs to be done?"
+            placeholder="오늘 해야 할 일은?"
             value={text}
             onChange={handleChange}
             onKeyPress={handleKeyPress}

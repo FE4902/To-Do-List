@@ -1,22 +1,30 @@
+:root {
+    --primary-color: #fe4902;
+    --white-color: #f5f5f5;
+}
+
 body {
-    display: grid;
-    place-content: center;
-    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    font-family: "Pretendard", sans-serif;
 }
 
 .wrap {
     display: grid;
-    background-color: #fff;
-    border-radius: 16px;
-    padding: 16px 16px 32px;
     width: 375px;
-    box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
 }
 
 .header {
+    margin-bottom: 16px;
+}
+
+.title {
+    margin-bottom: 12px;
     font-size: 28px;
     font-weight: 700;
-    margin-bottom: 16px;
+    text-align: center;
 }
 
 .body {
