@@ -1,23 +1,36 @@
+import { useContext } from "react";
+import { TodoContext } from "../App";
+
+import S from "./TodoMenu.module.scss";
+
 const TodoMenu = (): JSX.Element => {
+    const { todos, setTodos } = useContext(TodoContext);
+
+    const handleClear = () => {
+        setTodos(todos.filter((v) => v.complete === false));
+    };
+
     return (
-        <>
-            <div className="menu">
-                <ul className="menu__list">
-                    <li className="menu__item">
-                        <button className="menu__link">All</button>
+        <div className={S.menu}>
+            <div className={S.sort}>
+                <ul className={S.sort__list}>
+                    <li className={S.sort__item}>
+                        <button className={S.sort__button}>All</button>
                     </li>
-                    <li className="menu__item">
-                        <button className="menu__link">Active</button>
+                    <li className={S.sort__item}>
+                        <button className={S.sort__button}>Active</button>
                     </li>
-                    <li className="menu__item">
-                        <button className="menu__link">Completed</button>
+                    <li className={S.sort__item}>
+                        <button className={S.sort__button}>Completed</button>
                     </li>
                 </ul>
             </div>
-            <div className="clear">
-                <button className="clear__button">Clear Completed</button>
-            </div>
-        </>
+            {todos.length > 0 && (
+                <button className={S.clear} onClick={handleClear}>
+                    Clear Completed
+                </button>
+            )}
+        </div>
     );
 };
 

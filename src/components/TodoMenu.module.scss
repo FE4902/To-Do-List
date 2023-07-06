@@ -1,0 +1,19 @@
+.menu {
+    display: flex;
+    color: var(--primary-color);
+}
+
+.sort {
+    display: none;
+}
+
+.clear {
+    padding: 8px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--primary-color);
+
+    &:hover {
+        color: var(--white-color);
+        background-color: var(--primary-color);
+    }
+}

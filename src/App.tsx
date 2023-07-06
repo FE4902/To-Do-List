@@ -23,13 +23,11 @@ function App() {
                 <header className="header">
                     <h1 className="title">오늘 할 일</h1>
                     <TodoInput />
+                    <TodoMenu />
                 </header>
                 <main className="body">
                     <TodoList />
                 </main>
-                <footer className="footer">
-                    <TodoMenu />
-                </footer>
             </div>
         </TodoContext.Provider>
     );
