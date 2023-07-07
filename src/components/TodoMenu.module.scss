@@ -1,10 +1,59 @@
 .menu {
     display: flex;
+    gap: 8px;
     color: var(--primary-color);
 }
 
 .sort {
-    display: none;
+    position: relative;
+    flex: 1;
+
+    &__value {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 8px 8px 12px;
+        border-radius: 8px;
+        border: 1px solid var(--primary-color);
+        cursor: pointer;
+    }
+
+    &__list {
+        z-index: 1;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: calc(100% + 4px);
+        width: 100%;
+        border-radius: 8px;
+        border: 1px solid var(--primary-color);
+        background-color: var(--white-color);
+        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+
+        .sort:focus & {
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+
+    &__button {
+        width: 100%;
+        padding: 4px 12px;
+        text-align: left;
+
+        &:hover {
+            color: var(--light-color);
+            background-color: var(--primary-color);
+        }
+    }
+
+    &:focus svg {
+        transform: rotate(180deg);
+    }
 }
 
 .clear {
@@ -13,7 +62,7 @@
     border: 1px solid var(--primary-color);
 
     &:hover {
-        color: var(--white-color);
+        color: var(--light-color);
         background-color: var(--primary-color);
     }
 }

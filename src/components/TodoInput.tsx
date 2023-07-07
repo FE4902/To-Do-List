@@ -30,6 +30,7 @@ const TodoInput = (): JSX.Element => {
             value={text}
             onChange={handleChange}
             onKeyPress={handleKeyPress}
+            autoFocus
         />
     );
 };

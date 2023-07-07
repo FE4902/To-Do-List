@@ -5,7 +5,7 @@
     border-radius: 8px;
     gap: 8px;
     background-color: var(--primary-color);
-    color: var(--white-color);
+    color: var(--light-color);
     animation: 0.3s show;
 
     &.active {
@@ -26,29 +26,33 @@
 .check {
     padding: 4px;
     border-radius: 50%;
-    color: var(--white-color);
+    color: var(--light-color);
     transition: 0.3s;
     cursor: pointer;
 
     .active &,
     &:hover {
         color: var(--primary-color);
-        background-color: var(--white-color);
+        background-color: var(--light-color);
         outline: 0;
     }
+}
+
+.text {
+    flex-shrink: 1;
 }
 
 .delete {
     padding: 4px;
     margin-left: auto;
     border-radius: 50%;
-    color: var(--white-color);
+    color: var(--light-color);
     transition: 0.3s;
     cursor: pointer;
 
     &:hover {
         color: var(--primary-color);
-        background-color: var(--white-color);
+        background-color: var(--light-color);
         outline: 0;
     }
 }

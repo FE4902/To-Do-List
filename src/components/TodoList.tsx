@@ -1,16 +1,11 @@
-import { useContext } from "react";
-import { TodoContext } from "../App";
-
 import TodoItem from "./TodoItem";
 
 import S from "./TodoList.module.scss";
 
-const TodoList = (): JSX.Element => {
-    const { todos } = useContext(TodoContext);
-
+const TodoList = ({ sortTodos }: any): JSX.Element => {
     return (
         <ul className={S.list}>
-            {todos.map((v: any) => {
+            {sortTodos.map((v: any) => {
                 return (
                     <TodoItem
                         key={v.id}
