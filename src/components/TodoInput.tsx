@@ -7,15 +7,15 @@ const TodoInput = (): JSX.Element => {
     const [text, setText] = useState("");
     const { todos, setTodos } = useContext(TodoContext);
 
-    const handleChange = (e: any) => {
-        setText(e.target.value);
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setText(e.currentTarget.value);
     };
 
-    const handleKeyPress = (e: any) => {
+    const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
         if (e.key === "Enter") {
             const id = todos.length > 0 ? todos[todos.length - 1].id + 1 : 1;
 
-            if (e.target.value) {
+            if (e.currentTarget.value) {
                 setTodos([...todos, { id: id, text: text, complete: false }]);
             }
             setText("");

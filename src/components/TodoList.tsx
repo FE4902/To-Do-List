@@ -2,10 +2,20 @@ import TodoItem from "./TodoItem";
 
 import S from "./TodoList.module.scss";
 
-const TodoList = ({ sortTodos }: any): JSX.Element => {
+type TodoType = {
+    id: number;
+    text: string;
+    complete: boolean;
+};
+
+type TodoListProps = {
+    sortTodos: TodoType[];
+};
+
+const TodoList = ({ sortTodos }: TodoListProps): JSX.Element => {
     return (
         <ul className={S.list}>
-            {sortTodos.map((v: any) => {
+            {sortTodos.map((v: TodoType) => {
                 return (
                     <TodoItem
                         key={v.id}

@@ -4,14 +4,20 @@ import { FaAngleDown } from "react-icons/fa";
 
 import S from "./TodoMenu.module.scss";
 
+type TodoType = {
+    id: number;
+    text: string;
+    complete: boolean;
+};
+
 const TodoMenu = (): JSX.Element => {
     const { todos, setTodos, sort, setSort } = useContext(TodoContext);
 
     const handleClear = () => {
-        setTodos(todos.filter((v: any) => v.complete === false));
+        setTodos(todos.filter((v: TodoType) => v.complete === false));
     };
 
-    const handleSort = (e: any) => {
+    const handleSort = (e: React.MouseEvent<HTMLButtonElement>) => {
         if (e.currentTarget.textContent) {
             setSort(e.currentTarget.textContent);
         }

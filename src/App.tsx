@@ -6,14 +6,22 @@ import TodoMenu from "./components/TodoMenu";
 
 import "./styles/style.scss";
 
+type TodoType = {
+    id: number;
+    text: string;
+    complete: boolean;
+};
+
 export const TodoContext = createContext<any>([]);
 
 function App() {
     const [todos, setTodos] = useState(
         JSON.parse(localStorage.getItem("todo") || "[]")
     );
-    const [sort, setSort] = useState(localStorage.getItem("sort") || "All");
-    const [sortTodos, setSortTodos] = useState(todos);
+    const [sort, setSort] = useState<string>(
+        localStorage.getItem("sort") || "All"
+    );
+    const [sortTodos, setSortTodos] = useState<TodoType[]>(todos);
 
     useEffect(() => {
         localStorage.setItem("todo", JSON.stringify(todos));
@@ -24,10 +32,14 @@ function App() {
                 setSortTodos(todos);
                 break;
             case "Active":
-                setSortTodos(todos.filter((v: any) => v.complete === false));
+                setSortTodos(
+                    todos.filter((v: TodoType) => v.complete === false)
+                );
                 break;
             case "Completed":
-                setSortTodos(todos.filter((v: any) => v.complete === true));
+                setSortTodos(
+                    todos.filter((v: TodoType) => v.complete === true)
+                );
                 break;
         }
     }, [todos, sort]);

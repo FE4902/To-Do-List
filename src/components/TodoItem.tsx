@@ -6,26 +6,26 @@ import { TodoContext } from "../App";
 
 import S from "./TodoItem.module.scss";
 
-type TodoItemType = {
+type TodoType = {
     id: number;
     text: string;
     complete: boolean;
 };
 
-const TodoItem = (props: TodoItemType): JSX.Element => {
+const TodoItem = (props: TodoType): JSX.Element => {
     const { id, text, complete } = props;
     const { todos, setTodos } = useContext(TodoContext);
 
     const handleCheck = () => {
         setTodos(
-            todos.map((v: any) =>
+            todos.map((v: TodoType) =>
                 v.id === id ? { ...v, complete: !complete } : v
             )
         );
     };
 
     const handleDelete = () => {
-        setTodos(todos.filter((v: any) => v.id !== id));
+        setTodos(todos.filter((v: TodoType) => v.id !== id));
     };
 
     return (
