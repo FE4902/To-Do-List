@@ -1,16 +1,11 @@
-import cns from "classnames";
-import { FaCheck, FaTrashAlt } from "react-icons/fa";
-
 import { useContext } from "react";
+import { FaCheck, FaTrashAlt } from "react-icons/fa";
+import cns from "classnames";
+
 import { TodoContext } from "../App";
+import { TodoType } from "../types/types";
 
 import S from "./TodoItem.module.scss";
-
-type TodoType = {
-    id: number;
-    text: string;
-    complete: boolean;
-};
 
 const TodoItem = (props: TodoType): JSX.Element => {
     const { id, text, complete } = props;

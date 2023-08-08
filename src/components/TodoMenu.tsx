@@ -1,14 +1,10 @@
 import { useContext } from "react";
-import { TodoContext } from "../App";
 import { FaAngleDown } from "react-icons/fa";
 
-import S from "./TodoMenu.module.scss";
+import { TodoContext } from "../App";
+import { TodoType } from "../types/types";
 
-type TodoType = {
-    id: number;
-    text: string;
-    complete: boolean;
-};
+import S from "./TodoMenu.module.scss";
 
 const TodoMenu = (): JSX.Element => {
     const { todos, setTodos, sort, setSort } = useContext(TodoContext);

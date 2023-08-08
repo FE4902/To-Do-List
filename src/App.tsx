@@ -1,16 +1,12 @@
 import { useState, createContext, useEffect } from "react";
 
+import { TodoType } from "./types/types";
+
 import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 import TodoMenu from "./components/TodoMenu";
 
 import "./styles/style.scss";
-
-type TodoType = {
-    id: number;
-    text: string;
-    complete: boolean;
-};
 
 export const TodoContext = createContext<any>([]);
 
