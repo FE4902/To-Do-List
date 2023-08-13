@@ -7,16 +7,22 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
     font-family: "Pretendard", sans-serif;
 }
 
 .wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100dvh;
+}
+
+.container {
     display: grid;
-    width: 375px;
+    max-width: calc(375px + 32px);
+    width: 100%;
+    padding: 32px 16px;
 }
 
 .header {

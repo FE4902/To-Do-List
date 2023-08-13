@@ -43,14 +43,16 @@ function App() {
     return (
         <TodoContext.Provider value={{ todos, setTodos, sort, setSort }}>
             <div className="wrap">
-                <header className="header">
-                    <h1 className="title">오늘 할 일</h1>
-                    <TodoInput />
-                    {todos.length > 0 && <TodoMenu />}
-                </header>
-                <main className="body">
-                    <TodoList sortTodos={sortTodos} />
-                </main>
+                <div className="container">
+                    <header className="header">
+                        <h1 className="title">오늘 할 일</h1>
+                        <TodoInput />
+                        {todos.length > 0 && <TodoMenu />}
+                    </header>
+                    <main className="body">
+                        <TodoList sortTodos={sortTodos} />
+                    </main>
+                </div>
             </div>
         </TodoContext.Provider>
     );
